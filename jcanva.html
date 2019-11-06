@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+      
+       
+            
+
+    <style>
+      </style>
+</head>
+<body>
+    <canvas id="c1" style="border:0.09px solid red;
+    background-color: linen;width:1000px;height:500px; " > </canvas>
+        <input type="button" onclick="cube()" value="ccclick"></button>
+        <script > 
+           var canvasAnim=document.getElementById('c1');
+				var ctxAnim=canvasAnim.getContext('2d');
+
+
+				var nbElement = 7;
+				var hueColor = 0;
+				var i = 0;
+
+				var AnimCourbe = function()
+				{
+					// Reinitialisation du canvas
+					ctxAnim.clearRect(0,0,canvasAnim.width,canvasAnim.height);
+					
+					for(var elem=0; elem < nbElement; elem++)
+					{
+						var decalage = (0.5*i+elem*10)/20; // Decalage
+
+						// Calcul des points de controle de la courbe
+						var y = (Math.cos(decalage)+0.8)*canvasAnim.height;
+						var ctrly1 = (Math.sin(decalage)+1)*canvasAnim.height/2;
+            
+
+						// Declaration de la courbe
+						ctxAnim.beginPath();
+						ctxAnim.moveTo(-10, y);
+						ctxAnim.bezierCurveTo(ctrly1+y,y,100,ctrly1, 100, y*2);
+
+						// Epaisseur - Couleur de la ligne
+						ctxAnim.lineWidth = 1+(nbElement-elem);
+						hueColor = hueColor + Math.random();
+						ctxAnim.strokeStyle = 'hsl(' + hueColor + ', 50%, 50%)';
+						// Ombre flouttee
+						ctxAnim.shadowColor = 'rgba(30,30,1,0.5)';
+						ctxAnim.shadowBlur = 2;
+            
+						// Affichage
+						ctxAnim.stroke();
+					}
+				i++;
+				};
+
+				setInterval(AnimCourbe, 30);
+        </script>
+</body>
+</html>

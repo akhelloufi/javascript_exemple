@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+    body{border:1px solid blue;height:700px;}
+    </style>
+    <script>
+         var b=false;
+        function positionSouris(a) {
+            
+          var posX;
+          var posY;
+          posX = a.clientX;
+          posY = a.clientY;
+          document.getElementById('d1').innerHTML =
+            'Coordonnées de la souris :X = ' + posX + 'Y = ' + posY;
+         // if(b==true){
+            var x=document.createElement("div");
+            var t=document.createTextNode("");
+            x.appendChild(t);
+            x.style.position="absolute";
+            x.style.left=posX+"px";
+            x.style.top=posY+"px";
+            x.style.width="100px";
+            x.style.height="100px";
+            var c=()=>Math.floor(Math.random()*255);
+            x.style.backgroundColor="rgb("+c()+","+c()+","+c()+")";
+            document.body.appendChild(x);
+        //}
+       }
+      
+           function activer(){
+                b=true;
+           }
+       function desactiver(){
+           b=false;
+       }
+       </script>
+</head>
+<body onmousemove="positionSouris(event)"
+onmousedown="activer()" onmouseup="desactiver();"
+ondblclick="positionSouris(event)"
+
+>
+
+    <div id="d1"
+    style="border:solid 1px black; width:220px; height:100px; padding:10px;">
+ </div>
+</body>
+</html>

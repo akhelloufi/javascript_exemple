@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+    body{border:1px solid blue;height:500px;background-color: gray;}
+    .c1{
+          
+         -webkit-transform-origin: 50% 200%;
+         -webkit-animation-name: a1;
+         -webkit-animation-delay: 2s;
+         -webkit-animation-duration: 3s;
+         -webkit-animation-iteration-count:infinite;
+         -webkit-animation-direction: alternate;
+         -webkit-animation-timing-function:cubic-bezier(0.6, -0.28, 0.735, 0.045) ;
+         
+      }
+
+      @-webkit-keyframes  a1{
+         0%{  transform: skew(0deg, 0deg);-webkit-box-shadow: 4px 4px 10px red;}  
+        
+         100%{    transform: skew(60deg,-60deg);-webkit-box-shadow: 8px 8px 10px  #880000;
+          
+          }  
+           
+      }
+    </style>
+    <script>
+         var b=false;
+         var bas=100,gauche=100;
+         var i=10;
+         var x=null;
+        function dessiner(a) {
+            
+          var posX;
+          var posY;
+      
+          document.getElementById('d1').innerHTML =
+            'Coordonnées de la souris :X = ' + posX + 'Y = ' + posY;
+            blocgenerer();
+            x=creerEl(gauche,bas);
+            
+       }
+       function creerEl(posX,posY){
+            var x=document.createElement("div");
+            var t=document.createTextNode("");
+            x.appendChild(t);
+            x.style.position="absolute";
+            x.style.left=posX+"px";
+            x.style.top=posY+"px";
+            x.style.width="50px";
+            x.style.height="50px";
+            x.style.borderRadius="20px";
+            var c=()=>Math.floor(Math.random()*255);
+           x.style.backgroundColor="rgb("+c()+","+c()+","+c()+")";
+          // x.style.backgroundColor="red";
+           // x.className +=" c1";
+            document.body.appendChild(x);
+            return x;
+          }
+           function activer(){
+                b=true;
+           }
+       function desactiver(){
+           b=false;
+       }
+       var objetsupp=x;
+       function deplacer(e){
+
+            console.log("v"+e.keyCode); console.log("bas"+bas);
+           if(e.keyCode==40) bas+=5 ;if(e.keyCode==38) bas-=5 ;
+           if(e.keyCode==39) gauche+=5 ;
+           if(e.keyCode==37) gauche-=5 ;
+           
+            x.style.backgroundColor="red";
+            if(objetsupp!=null){document.body.removeChild(objetsupp);}
+            objetsupp= creerEl(gauche,bas);
+       }
+       function blocgenerer(){
+            var i=0;
+            var c1=(n)=>Math.floor(Math.random()*n);
+           var k=c1(700);
+            for(i=0;i<=10;i++){
+                  d=creerEl(k,c1(500));
+                  d.className +=" c1";
+            }
+           
+       }
+     document.onkeydown=deplacer;
+      // document.body.addEventListener("keyup", deplacer);
+       </script>
+</head>
+<body  >
+<input type="button" value="demarrer" onclick="dessiner()" />
+    <div id="d1"
+    style="border:solid 1px black; width:220px; height:100px; padding:10px;">
+ </div>
+</body>
+</html>

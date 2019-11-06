@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+      
+        <script >
+         console.table(["apples", "oranges", "bananas"]);
+         // un objet dont les propriétés sont des chaînes de caractères
+
+// un tableau d'objets, affichant seulement firstName
+
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+var john = new Person("John", "Smith");
+var jane = new Person("Jane", "Doe");
+var emily = new Person("Emily", "Jones");
+
+console.table([john, jane, emily], ["firstName"]);
+       var s="Bonjour";
+      /*var l= s.length;//7
+      var x= s[0];//B
+      var y= s[s.length-1];//r
+      var z=s.charAt(2);//s[2] n
+      var w=s.charCodeAt(0);
+      var T=["aller ","venir","dsfsdf"];
+      a=s.concat(T);
+     // var E=[62,66,70];
+      var b=String.fromCharCode(62,66,70);
+       */
+
+       var t="allerparlervenirer";
+       var i= t.indexOf("er",4);
+       var j=t.lastIndexOf("er");
+
+       // alert("i="+i+" j="+j);
+       if(i==-1 || j==-1){
+         alert("n existe pas")
+       }
+       /*var text="exemple plein de ple ";
+       var rg=new RegExp();
+
+       var h=text.match(/ple/g);
+       alert(h.length);*/
+
+       var q="saluto tout les toutples";
+
+      // var p=q.replace(/(to)+/g,"go");
+      // document.write("q="+q+"<br/>");
+       //document.write("p="+p);
+       //var k=q.search(/tout*/g);
+       //console.log("k"+k);
+       var u="startyourdevandyourCode";
+       var T=u.split("y");
+       document.write(T+"<br/>");
+       /*
+       document.write("u="+u+"<br/>");
+       document.write("slice (5,9) :"+u.slice(5,9));
+       document.write("<br/>");
+       document.write("substr (2,2) :"+u.substr(2,2));
+       document.write("<br/>");
+       document.write("substring (5,9) :"+u.substring(5,9));
+       */
+       
+        </script>
+            
+
+    <style>
+      </style>
+</head>
+<body>
+    <div style="border:0.09px solid red;
+    background-color: linen; " > </div>
+        
+           
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+      
+       
+            
+
+    <style>
+        div:nth-child(n+1){opacity:0.5;}
+       div{border:0.09px solid red;
+       padding:5px;width:50%;margin:5px 0px;
+       }
+       .c1{background-color: linen; }
+       .c2{background-color: blue;}
+      </style>
+</head>
+<body>
+        <div  class="c1">div1</div>
+        <div  >div2</div>
+        <div class="c1" >div3</div>
+        <div  >div4</div>
+        <div  >div5</div>
+         <script >
+         //queryselctor queryselectorall,getelementbytagname,getelementbyid,getelementbyclass
+         
+        /*  var x=document.querySelector(".c1");//return juste le premier
+          x.className+=" c2"*/
+          var x=document.querySelectorAll(".c1");//return un tableau de tout les tags 
+        //  document.write(Object.(x)); // ['0', '1', '2', '5'] 
+        for(i=0;i<x.length;i++){
+               x[i].className+=" c2";
+          }
+          for(prop in x){//attention for in parcour les noms des propriete de l objet
+              document.write(prop+" , ");
+          }
+         // x.forEach( a=>a.className="c2");//une methode rapide pour boucler donner la fonction de traitmenent
+         var T={age:"ALI",nom:"AHMED",prenom:"OMAR"};
+         //var T={0:"ALI",1:"AHMED",2:"OMAR"}; //T[1]
+        for(x in T	){//prop boucle
+            document.write(x+" ,<br >");
+        }
+         
+        document.querySelector("#id1");
+        //equivalent
+        document.getElementById("id1");
+        document.querySelectorAll(".c1");//equivalent a ->
+        document.getElementsByClassName("c1");
+        document.querySelector("#id1");//equivalent a ->
+        document.getElementsByTagName("div");
+        </script>
+           
+</body>
+</html>

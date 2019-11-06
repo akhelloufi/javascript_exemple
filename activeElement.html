@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body onclick="f1()">
+
+<p>Click anywhere in the document to display the active element.</p>
+<input type="text" value="An input field">
+<button>A Button</button>
+<input type="text" value="An input field">
+<button>A Button</button>
+<a href="">lien</a>
+<p id="d1"></p>
+
+<script>
+function f1() {
+  document.all.f1="f2";
+  var x = document.activeElement.tagName;
+  if(x!="BODY"){
+  var o=document.activeElement;
+   o.style.backgroundColor="red";
+  }
+ 
+  document.getElementById("d1").innerHTML = x;
+}
+document.cookie="username=uu  ; expires=Thu, 18 Dec 2019 12:00:00 UTC; path=./";
+</script>
+
+</body>
+</html>

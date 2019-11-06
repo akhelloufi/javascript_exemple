@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+    body{border:1px solid blue;height:500px;background-color: gray;}
+    .c1{
+          
+        /*-webkit-transform-origin: 150% 100%;*/
+         -webkit-animation-name: a1;
+         -webkit-animation-delay: 2s;
+         -webkit-animation-duration: 3s;
+         -webkit-animation-iteration-count:infinite;
+         -webkit-animation-direction: alternate;
+         -webkit-animation-timing-function:cubic-bezier(0.6, -0.28, 0.735, 0.045) ;
+        position:absolute;top:20%;
+      }
+
+      @-webkit-keyframes  a1{
+         0%{ /*-webkit-transform: scale(0,0);*/
+          -webkit-transform: rotateY(0deg);  
+         }  
+        
+         100%{ /* -webkit-transform:scale(10, 10);*/
+         /* transform: perspective(550px) scale3d(3, 2, 0.7) translateZ(100px);*/
+         -webkit-transform: rotateY(360deg);  
+          
+          }  
+           
+      }
+      .face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: inherit;
+    font-size: 60px;
+    color: #fff;
+}
+.front {
+    background: rgba(90,90,90,.7);
+    transform: translateZ(50px);
+}
+.back {
+    background: rgba(0,210,0,.7);
+    transform: rotateY(180deg) translateZ(50px);
+}
+.right {
+    background: rgba(210,0,0,.7);
+    transform: rotateY(90deg) translateZ(50px);
+}
+.left {
+    background: rgba(0,0,210,.7);
+    transform: rotateY(-90deg) translateZ(50px);
+}
+.top {
+    background: rgba(210,210,0,.7);
+    transform: rotateX(90deg) translateZ(50px);
+}
+.bottom {
+    background: rgba(210,0,210,.7);
+    transform: rotateX(-90deg) translateZ(50px);
+}
+#example-element {
+    width: 100px;
+    height: 100px;
+  perspective: 550px;
+  perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+}
+.transition-all {
+   /* transition: all .3s ease-in;*/
+}
+    </style>
+    <script>
+         var b=false;
+         var bas=100,gauche=100;
+         var i=10;
+         var x=null;
+        function dessiner(a) {
+            
+          var posX;
+          var posY;
+      
+          document.getElementById('d1').innerHTML =
+            'Coordonnées de la souris :X = ' + posX + 'Y = ' + posY;
+         
+            x=creerEl(gauche,bas);
+            
+       }
+       function creerEl(posX,posY){
+            var x=document.createElement("div");
+            var t=document.createTextNode("");
+            x.appendChild(t);
+            x.style.position="absolute";
+            x.style.left=posX+"px";
+            x.style.top=posY+"px";
+            x.style.width="50px";
+            x.style.height="50px";
+            x.style.borderRadius="20px";
+            var c=()=>Math.floor(Math.random()*255);
+            x.style.backgroundColor="rgb("+c()+","+c()+","+c()+")";
+            x.className +=" c1";
+            document.body.appendChild(x);
+            return x;
+          }
+           function activer(){
+                b=true;
+           }
+       function desactiver(){
+           b=false;
+       }
+       function deplacer(e){
+
+            console.log("v"+e.keyCode); console.log("bas"+bas);
+           if(e.keyCode==40) bas+=5 ;if(e.keyCode==38) bas-=5 ;
+           if(e.keyCode==39) gauche+=5 ;
+           if(e.keyCode==37) gauche-=5 ;
+           
+            x.style.backgroundColor="red";
+            creerEl(gauche,bas);
+       }
+     document.onkeydown=deplacer;
+      // document.body.addEventListener("keyup", deplacer);
+       </script>
+</head>
+<body  >
+<input type="button" value="demarrer" onclick="dessiner()" />
+    <div id="d1"
+    style="border:solid 1px black; width:220px; height:100px; padding:10px;">
+    <div id="example-element" class="c1 transition-all" style="transform: scale3d(1.3, 1.3, 1.3);">
+          <div class="face front">1</div>
+          <div class="face back">2</div>
+          <div class="face right">3</div>
+          <div class="face left">4</div>
+          <div class="face top">5</div>
+          <div class="face bottom">6</div>
+      </div>
+ </div>
+</body>
+</html>

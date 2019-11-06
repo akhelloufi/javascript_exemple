@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+      
+        <script >
+            function go(s)
+            {
+                return s[Math.floor(Math.random()*s.length)];
+
+            }
+            function diko(n,f1,s){
+                var l="";var i=0;
+                for (i = 0; i <n; i++) {
+                    l+=f1(s);
+                }
+                return l;
+            }
+
+        var s="Bonjour"; 
+        var doo=((s)=>s[Math.floor(Math.random()*s.length)]);
+
+        document.write(diko(3,(s)=>s[Math.floor(Math.random()*s.length)],s));
+
+        </script>
+            
+
+    <style>
+        div{
+            display:none;
+        }
+      </style>
+</head>
+<body>
+    <div style="border:0.09px solid red;background-color: linen; " >djdjd</div>
+        
+           
+</body>
+</html>
